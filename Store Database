@@ -1,0 +1,21 @@
+CREATE TABLE clothing_store (id INTEGER primary key, item_name TEXT, item_type TEXT, cost INTEGER, stock INTEGER);
+
+INSERT INTO clothing_store VALUES
+(1, "Black T-shirt", "Top", 17, 47),
+(2, "White T-shirt", "Top", 17, 50),
+(3, "Blue Jeans", "Bottom", 24, 82),
+(4, "Khaki Pants", "Bottom", 30, 32),
+(5, "Yellow Skirt", "Bottom", 15, 18),
+(6, "Teal Dress", "One Piece", 37, 15),
+(7, "Orange Romper", "One Piece", 40, 5),
+(8, "Pink Heels", "Shoe", 20, 12),
+(9, "Purple Sneakers", "Shoe", 18, 32),
+(10, "Black Leggings", "Bottom", 12, 50),
+(11, "Navy Button-up", "Top", 20, 18),
+(12, "Lilac Gown", "One Piece", 42, 12),
+(13, "Green Pullover", "Top", 30, 7),
+(14, "Cream Hoodie", "Top", 25, 18),
+(15, "Blue Shorts", "Bottom", 15, 42);
+
+SELECT * FROM clothing_store
+ORDER BY stock;
