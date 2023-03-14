@@ -1,0 +1,65 @@
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY,
+first_name TEXT,
+last_name TEXT,
+age INTEGER,
+occupation_id INTEGER,
+partner_id INTEGER);
+
+INSERT INTO famous_people 
+VALUES (1, "Beyonce", "Knowles", 41, 1, 2);
+INSERT INTO famous_people 
+VALUES (2, "Shawn", "Carter", 53, 1, 1);
+INSERT INTO famous_people 
+VALUES (3, "Ashton", "Kutcher", 45, 2, 4);
+INSERT INTO famous_people 
+VALUES (4, "Mila", "Kunis", 39, 2, 3);
+INSERT INTO famous_people 
+VALUES (5,"Edin", "Polani", 19, 3, 6);
+INSERT INTO famous_people 
+VALUES (6,"Leonardo", "DiCaprio", 48, 2, 5);
+INSERT INTO famous_people 
+VALUES (7, "Timothee", "Chalemet", 27, 2, NULL);
+
+CREATE TABLE occupation_id (id INTEGER PRIMARY KEY, 
+occupation TEXT);
+
+INSERT INTO occupation_id
+VALUES (1, "Musician");
+INSERT INTO occupation_id
+VALUES (2, "Actor");
+INSERT INTO occupation_id
+VALUES (3, "Model");
+
+CREATE TABLE best_known_for (id INTEGER PRIMARY KEY, 
+name TEXT,
+"type" TEXT);
+
+INSERT INTO best_known_for 
+VALUES (7, "Call Me by Your Name", "Movie");
+INSERT INTO best_known_for 
+VALUES (4, "That 70's Show", "TV Show");
+INSERT INTO best_known_for 
+VALUES (6, "Titanic", "Movie");
+INSERT INTO best_known_for 
+VALUES (1, "Single Ladies", "Song");
+INSERT INTO best_known_for 
+VALUES (2, "Where I'm From", "Song");
+INSERT INTO best_known_for 
+VALUES (3, "That 70's Show", "TV Show");
+INSERT INTO best_known_for 
+VALUES (5, "Dating Leonardo DiCaprio", "Social");
+
+SELECT famous_people.first_name, famous_people.last_name, occupation_id.occupation
+FROM famous_people
+JOIN occupation_id
+ON famous_people.occupation_id = occupation_id.id;
+
+SELECT famous_people.first_name, famous_people.last_name, best_known_for.name
+FROM famous_people
+JOIN best_known_for
+ON famous_people.id = best_known_for.id;
+
+SELECT famous_people.first_name, famous_people.age, famous_people2.first_name, famous_people2.age
+FROM famous_people
+LEFT OUTER JOIN famous_people famous_people2
+ON famous_people.id = famous_people2.partner_id;
