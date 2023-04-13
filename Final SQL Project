@@ -39,10 +39,15 @@ FROM chinook.invoices
 WHERE InvoiceDate LIKE '2009%';
 
 --What are the total sales for 2009?
-
+SELECT SUM(Total)
+FROM chinook.Invoices
+WHERE InvoiceDate LIKE '2009%';
 
 --Write a query that includes the purchased track name with each invoice line ID.
-
+SELECT t.Name, i.InvoiceLineId
+FROM chinook.tracks t
+JOIN chinook.invoice_items i
+ON t.TrackId = i.TrackId;
 
 --Write a query that includes the purchased track name AND artist name with each invoice line ID.
 
